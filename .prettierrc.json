@@ -6,7 +6,8 @@
     "printWidth": 80,
     "plugins": [
         "./node_modules/prettier-plugin-twig-melody",
-        "./node_modules/@prettier/plugin-php"
+        "./node_modules/@prettier/plugin-php",
+        "./node_modules/prettier-plugin-tailwindcss"
     ],
     "twigPrintWidth": 100,
     "twigSingleQuote": true,
@@ -30,5 +31,6 @@
     "proseWrap": "preserve",
     "requirePragma": false,
     "trailingComma": "none",
-    "endOfLine": "lf"
+    "endOfLine": "lf",
+    "tailwindConfig": "./tailwind.config.js"
 }
