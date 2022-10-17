@@ -23,8 +23,6 @@
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/*
 !/public/bundles/.gitkeep
-/public/build/*
-!/public/build/.gitkeep
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
@@ -73,3 +71,10 @@ error.error_log
 
 sftp-config.json
 ###< ignore compiled files ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
