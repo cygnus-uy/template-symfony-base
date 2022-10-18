@@ -1,6 +1,6 @@
-import './styles/app.css'
+import './styles/app.scss'
 
-const $ = require('jquery')
+import $ from 'jquery';
 
 $(() => {
     console.log('Hello Admin')
