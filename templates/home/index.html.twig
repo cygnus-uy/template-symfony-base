@@ -8,7 +8,9 @@
     {{ encore_entry_link_tags('app', null, 'website-config') }}
 {% endblock stylesheets %}
 {% block javascripts %}
-    {{ encore_entry_script_tags('app', null, 'website-config') }}
+    {% for jsFile in encore_entry_js_files('app', 'website-config') %}
+        <script nonce="a6d2c5203bc7da2cf1eb6e3dfaa89dcb" src="{{ asset(jsFile) }}" defer></script>
+    {% endfor %}
 {% endblock javascripts %}
 
 {% block body %}
@@ -19,23 +21,11 @@
         </h1>This friendly message is coming from:<ul>
             <li>
                 Your controller at
-                <code>
-                    <a href="{{ 'D:/public_html/template-symfony-base/src/Controller/HomeController.php'|file_link(
-                            0
-                        ) }}">
-                        src/Controller/HomeController.php
-                    </a>
-                </code>
+                <code><a href="{{ path('app_home') }}">src/Controller/HomeController.php</a></code>
             </li>
             <li>
                 Your template at
-                <code>
-                    <a href="{{ 'D:/public_html/template-symfony-base/templates/home/index.html.twig'|file_link(
-                            0
-                        ) }}">
-                        templates/home/index.html.twig
-                    </a>
-                </code>
+                <code><a href="{{ path('app_home') }}">templates/home/index.html.twig</a></code>
             </li>
         </ul>
 

@@ -1,5 +1,8 @@
 /* eslint-disable spaced-comment */
 const Encore = require('@symfony/webpack-encore')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+const path = require('path')
+const Dotenv = require('dotenv-webpack')
 
 //////////////// WEBSITE CONFIG //////////////////
 
@@ -81,6 +84,50 @@ Encore
     .enableSassLoader()
 
     .enablePostCssLoader()
+    .addPlugin(
+        new Dotenv({
+            path: './.env',
+            safe: false,
+            allowEmptyValues: true,
+            systemvars: true
+        })
+    )
+    .addPlugin(
+        new WebpackPwaManifest({
+            filename: 'pwa-manifest.json',
+            name: 'Template Symfony Base Website',
+            short_name: 'TemplateSymfonyBaseWebsite',
+            description: 'My awesome Progressive Web App!',
+            display: 'standalone',
+            background_color: '#ffffff',
+            start_url: process.env.WEBSITE_URL_BASE,
+            theme_color: '#ffffff',
+            crossorigin: null, //can be null, use-credentials or anonymous
+            publicPath: './',
+            icons: [
+                {
+                    src: path.resolve(
+                        'app/website/images/favicon/apple-touch-icon-180x180.png'
+                    ),
+                    sizes: [57, 72, 76, 114, 120, 144, 152, 180], // multiple sizes
+                    destination: path.join('pwa', 'icons')
+                },
+                {
+                    src: path.resolve(
+                        'app/website/images/favicon/apple-touch-icon.png'
+                    ),
+                    size: '57x57',
+                    destination: path.join('pwa', 'icons'),
+                    purpose: 'maskable'
+                },
+                {
+                    src: path.resolve('app/website/images/favicon/favicon.ico'),
+                    size: '64x64',
+                    destination: path.join('pwa', 'icons')
+                }
+            ]
+        })
+    )
 
 // uncomment if you use TypeScript
 //.enableTypeScriptLoader()
