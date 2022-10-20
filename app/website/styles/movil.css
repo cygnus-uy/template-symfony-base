@@ -1,0 +1,375 @@
+/* @media only screen and (minpixel-ratio: 1.5),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+} */
+
+/* FIX OCULTAR BOTÓN MENÚ */
+@media screen and (max-width: 2400px) and (min-width: 0) {
+    .btn-menu {
+        display: none !important;
+    }
+}
+
+/* ======================================================================= */
+
+/* 1480
+
+========================================================================= */
+@media screen and (max-width: 1480px) {
+    /* TIPOGRAFIA */
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 3.4rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+    h4 {
+        font-size: 2.6rem;
+    }
+
+    h5 {
+        font-size: 2.2rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+}
+
+/* ======================================================================= */
+
+/* 1200
+
+========================================================================= */
+@media screen and (max-width: 1280px) {
+    /* TIPOGRAFIA */
+    h1 {
+        font-size: 3.6rem;
+    }
+
+    h2 {
+        font-size: 3.2rem;
+    }
+
+    h3 {
+        font-size: 2.8rem;
+    }
+
+    h4 {
+        font-size: 2.4rem;
+    }
+
+    h5 {
+        font-size: 2rem;
+    }
+
+    h6 {
+        font-size: 1.55rem;
+    }
+}
+
+/* ======================================================================= */
+
+/* 960
+
+========================================================================= */
+@media screen and (max-width: 960px) {
+    /* HEADER */
+
+    /* abrir menú */
+    .btn-menu {
+        display: block;
+        width: 30px;
+        height: 26px;
+        position: absolute;
+        right: 2rem;
+        top: 95px;
+        bottom: 0;
+        margin-left: auto;
+        background-image: url('../images/btn-menu.png');
+        background-image: url('../images/btn-menu.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    /* cerrar menú */
+    .btn-cerrar-menu {
+        display: none;
+        color: #fff;
+        font-size: 1.4rem;
+        position: absolute;
+        font-weight: 600;
+        top: 15px;
+        left: 15px;
+        width: 60px;
+        height: 20px;
+        cursor: pointer;
+        padding-left: 28px;
+        background: url('../images/close-menu.png') no-repeat;
+        background: url('../images/close-menu.svg') no-repeat;
+        background-size: contain;
+        background-position: left center;
+        line-height: 1.6;
+    }
+
+    .ico-drop {
+        display: none;
+        position: absolute;
+        top: 0.5rem;
+        right: 0.3rem;
+        width: 13px;
+        height: 7px;
+        background: url('../images/ico-drop.png') no-repeat right;
+        float: right;
+        margin-left: 5px;
+        cursor: pointer;
+        margin-right: 0 !important;
+    }
+
+    #header.scroll .btn-menu {
+        top: 16px;
+    }
+
+    .main-menu.visible .btn-cerrar-menu {
+        display: block;
+    }
+
+    /* main menú */
+    .main-menu.visible {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+
+        /* background-color:rgba(231,243,221,.8) */
+        background-color: rgb(255 255 255 / 80%);
+    }
+
+    #header.scroll .main-menu.visible {
+        top: 0;
+    }
+
+    /* menú */
+    .menu {
+        visibility: hidden;
+        opacity: 0;
+        width: 220px;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -500px;
+        background-color: #04b49f;
+        padding-top: 10px;
+    }
+
+    .main-menu.visible .menu {
+        right: 0;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .menu li {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .menu li a {
+        width: 100%;
+        display: block;
+        float: left;
+    }
+
+    /* abrir sub menus */
+    .menu li:hover .sub-menu {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .sub-menu {
+        display: none;
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .sub-menu li {
+        display: block;
+    }
+
+    /* TABLE */
+
+    /*
+	@media screen and (max-width: 500px) {
+	  table {
+		border: 0;
+	  }
+	  table thead {
+		border: none;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	  }
+	  table tr {
+
+		display: block;
+		margin-bottom: 1rem;
+	  }
+	  table td {
+
+		display: block;
+		text-align: right;
+	  }
+	  table td:before {
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-transform: uppercase;
+	  }
+	  table td:last-child {
+		border-bottom: 0;
+	  }
+
+	}
+	*/
+}
+
+/* ======================================================================= */
+
+/* 800
+
+========================================================================= */
+@media screen and (max-width: 800px) {
+    .col-1 {
+        width: 16.6666%;
+    }
+
+    .pl-100,
+    .pr-100 {
+        padding: 0 2.5rem;
+    }
+}
+
+/* ======================================================================= */
+
+/* 645
+
+========================================================================= */
+@media screen and (max-width: 645px) {
+    /* TIPOGRAFIA */
+    h1 {
+        font-size: 3.2rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 2.6rem;
+    }
+
+    h5 {
+        font-size: 1.9rem;
+    }
+
+    .cols-1,
+    .cols-2 {
+        width: 24.9999%;
+    }
+
+    .cols-3,
+    .cols-4,
+    .cols-5 {
+        width: 49.9998%;
+    }
+
+    .cols-6 .cols-6 {
+        width: 100%;
+    }
+
+    .cosl-7,
+    .cols-8,
+    .cols-9 {
+        width: 83.333%;
+    }
+
+    .cols-11 {
+        width: 100%;
+    }
+}
+
+/* @media screen and (max-width: 645px) and (orientation: landscape){
+
+} */
+
+/* ======================================================================= */
+
+/* 500
+
+========================================================================= */
+@media screen and (max-width: 500px) {
+    .cols-3,
+    .cols-4,
+    .cols-5,
+    .cols-6,
+    .cols-7,
+    .cols-8,
+    .cols-9,
+    .cols-10,
+    .cols-11 {
+        width: 100%;
+    }
+}
+
+/* ======================================================================= */
+
+/* 420
+
+========================================================================= */
+
+/* @media screen and (max-width: 420px){
+
+} */
+
+/* ======================================================================= */
+
+/* 360
+
+========================================================================= */
+
+/* @media screen and (max-width: 360px){
+
+} */
+
+/* ======================================================================= */
+
+/* 320
+
+========================================================================= */
+
+/* @media screen and (max-width: 320px){
+
+} */

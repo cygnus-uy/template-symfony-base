@@ -15,7 +15,7 @@ class HomeController extends AbstractController
                 'es' => '/inicio',
                 'en' => '/home',
             ],
-            name: 'app_home',
+            name: 'home-page',
         ),
     ]
     public function index(): Response

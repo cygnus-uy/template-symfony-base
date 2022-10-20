@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'aboutus.title'|trans }}
+{% endblock title %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app', null, 'website-config') }}
+{% endblock stylesheets %}
+{% block javascripts %}
+    {% for jsFile in encore_entry_js_files('app', 'website-config') %}
+        <script nonce="a6d2c5203bc7da2cf1eb6e3dfaa89dcb" src="{{ asset(jsFile) }}" defer></script>
+    {% endfor %}
+{% endblock javascripts %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block main %}
+
+{% endblock main %}
+
+{% block footer %}
+    <div class="cont"></div>
+{% endblock footer %}

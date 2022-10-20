@@ -1,0 +1,871 @@
+/* stylelint-disable selector-pseudo-element-no-unknown */
+@charset "utf-8";
+
+/* CSS Document */
+
+/* ---------------------------
+# BODY
+---------------------------- */
+body {
+    font-size: 1.5rem;
+    color: #333;
+    background-color: #fff;
+}
+
+/* ---------------------------
+# CONT
+---------------------------- */
+.cont,
+.cont-mini,
+.cont-mini-2 {
+    padding: 0 3rem;
+}
+
+.cont {
+    max-width: 1400px;
+}
+
+.cont-mini {
+    max-width: 1140px;
+}
+
+.cont-mini-2 {
+    max-width: 900px;
+}
+
+/* ---------------------------
+# TEXTO'S
+---------------------------- */
+h1 {
+    font-size: 4.2rem;
+}
+
+h2 {
+    font-size: 3.8rem;
+}
+
+h3 {
+    font-size: 3.4rem;
+}
+
+h4 {
+    font-size: 2.9rem;
+}
+
+h5 {
+    font-size: 2.4rem;
+}
+
+h6 {
+    font-size: 1.8rem;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+}
+
+/* a:link {
+}
+
+a:hover {
+}
+
+a:visited {
+} */
+
+/* ---------------------------
+# ICONOS
+---------------------------- */
+
+/* servicios */
+.ico-programacion::before {
+    background-image: url('../images/ico-programacion.png');
+}
+
+/* address */
+.ico-ubicacion::before {
+    background-image: url('../images/ico-ubicacion.png');
+}
+
+.ico-tel::before {
+    background-image: url('../images/ico-tel.png');
+}
+
+.ico-correo::before {
+    background-image: url('../images/ico-correo.png');
+}
+
+/* ---------------------------
+# BOTONES
+---------------------------- */
+.btn-scroll {
+    width: 45px;
+    height: 55px;
+    position: absolute;
+    bottom: 6rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 900;
+    background-repeat: no-repeat;
+    background-image: url('../images/flecha-abajo.png');
+}
+
+/* ---------------------------
+# HEADER
+---------------------------- */
+
+/* HEADER PRINCIPAL */
+#header {
+    z-index: 999;
+    background-color: #fff;
+    padding: 2rem 0;
+    position: fixed;
+    will-change: auto;
+    transition: all 0.7s ease;
+}
+
+#header .cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* SCROLL */
+#header.scroll {
+    background-color: var(--color-1);
+}
+
+#header.scroll .menu li a {
+    color: #fff;
+}
+
+#header.scroll .menu li a:hover,
+#header.scroll .menu li a.active {
+    opacity: 0.7;
+}
+
+#header.scroll #logo a {
+    background-image: url('../images/logo-cygnus-blanco.svg');
+}
+
+/* CABEZALES */
+header.cabezal {
+    text-align: center;
+    margin-bottom: 6em;
+}
+
+header.cabezal h3 {
+    font-weight: 300;
+    font-size: 3.3rem;
+    text-transform: uppercase;
+    padding-bottom: 2rem;
+}
+
+header.cabezal h3::after {
+    content: '';
+    width: 50px;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+/* quienes somos */
+.quienes-somos header.cabezal h3 {
+    color: var(--color-2);
+}
+
+.quienes-somos header.cabezal h3::after {
+    background-color: var(--color-1);
+}
+
+/* servicios */
+.servicios header.cabezal h3,
+.contacto header.cabezal h3 {
+    color: var(--color-3);
+}
+
+.servicios header.cabezal h3::after,
+.contacto header.cabezal h3::after {
+    background-color: var(--color-2);
+}
+
+/* portfolio */
+.portfolio header.cabezal h3 {
+    color: var(--color-1);
+}
+
+.portfolio header.cabezal h3::after {
+    background-color: var(--color-2);
+}
+
+/* TÍTULOS */
+
+/* header.tit {
+} */
+
+/* ---------------------------
+# NAV
+---------------------------- */
+
+/* MAIN MENÚ */
+.main-menu {
+    z-index: 998;
+    float: left;
+    width: auto;
+    max-width: 100%;
+    top: auto;
+    right: 0;
+}
+
+.menu {
+    height: 100%;
+    display: block;
+    width: auto;
+    float: left;
+    margin: 0;
+    right: 0;
+    padding-left: 1rem;
+}
+
+.menu li {
+    width: auto;
+    float: left;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0;
+    padding-right: 3rem;
+    list-style: none;
+    position: initial;
+}
+
+.menu li:last-child {
+    padding-right: 0;
+}
+
+.menu li a {
+    width: auto;
+    float: left;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.menu li a:hover,
+.menu li a.active {
+    color: var(--color-3);
+}
+
+/* btns */
+#flag {
+    display: none;
+}
+
+.btn-menu {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    bottom: 0;
+    right: 2rem;
+    margin: auto;
+    width: 2.5rem;
+    height: 2rem;
+    cursor: pointer;
+    background: #fff;
+}
+
+.btn-menu span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2em;
+    margin: auto;
+    transition: background 0s 0.25s;
+    background: #000;
+}
+
+.btn-menu span::before,
+.btn-menu span::after {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    content: '';
+    transition-delay: 0.25s, 0s;
+    transition-duration: 0.25s, 0.25s;
+    background: #000;
+}
+
+.btn-menu span::before {
+    top: -8px;
+    transition-property: top, -webkit-transform;
+    transition-property: top, transform;
+}
+
+.btn-menu span::after {
+    bottom: -8px;
+    transition-property: bottom, -webkit-transform;
+    transition-property: bottom, transform;
+}
+
+.activo #flag + span {
+    background: none;
+}
+
+.activo #flag + span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.activo #flag + span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.activo #flag + span::before,
+.activo #flag + span::after {
+    transition-delay: 0s, 0.25s;
+}
+
+.btn-cerrar-menu {
+    width: 2rem;
+    height: 2rem;
+    display: none;
+}
+
+/* ---------------------------
+# MAIN
+---------------------------- */
+
+/* #main {
+} */
+
+/* ---------------------------
+# ARTICLE
+---------------------------- */
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+article h1 strong,
+article h2 strong,
+article h3 strong,
+article h4 strong,
+article h5 strong,
+article h6 strong {
+    font-weight: 600;
+}
+
+article p {
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+}
+
+article p + h1,
+article p + h2,
+article p + h3,
+article p + h4,
+article p + h5,
+article p + h6 {
+    margin-top: 20px;
+}
+
+article .copete p {
+    font-weight: 600;
+}
+
+article ul {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    padding-left: 18px;
+}
+
+article ul li {
+    color: #666;
+    font-size: 1.6rem;
+    width: 100%;
+    float: left;
+    line-height: 1.5;
+    list-style: inherit !important;
+}
+
+article a {
+    text-decoration: underline;
+}
+
+article a:hover {
+    text-decoration: none;
+}
+
+/* quienes somos */
+.quienes-somos article p {
+    font-size: 2.6rem;
+    color: var(--color-1);
+    font-weight: 300;
+}
+
+/* ---------------------------
+# SECTION'S
+---------------------------- */
+.contenido {
+    padding: 10rem 0;
+}
+
+/* PORTADA (inicio) */
+
+/* .portada {
+    z-index: -11
+} */
+
+.portada::before {
+    content: '';
+    position: absolute;
+    background-color: var(--color-1);
+    width: 100%;
+    height: 100%;
+}
+
+/* textos */
+.portada .tx {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portada .tx h2 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 4.4rem;
+}
+
+/* QUIENES SOMOS */
+.quienes-somos.contenido {
+    padding: 14rem 0;
+}
+
+/* PORTFOLIO */
+.portfolio {
+    padding-bottom: 0;
+}
+
+/* CLIENTES */
+.clientes {
+    background-color: #f5f5f5;
+    padding: 8rem 0;
+}
+
+/* ---------------------------
+# ADDRESS
+---------------------------- */
+address {
+    margin-top: 3rem;
+}
+
+/* icos */
+address i::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 40px;
+    background-size: auto !important;
+    background-position: left !important;
+}
+
+/* textos */
+address h6,
+address span,
+address a {
+    padding-left: 70px;
+    width: 100%;
+    float: left;
+}
+
+address h6 {
+    color: var(--color-2);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+address a,
+address span {
+    color: var(--color-4);
+    text-decoration: none;
+}
+
+address a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------------------
+# FOOTER
+---------------------------- */
+
+/* FOOTER PRINCIPAL */
+#footer {
+    padding: 3rem 0;
+}
+
+/* ---------------------------
+# LOGO
+---------------------------- */
+
+#logo {
+    width: auto;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#logo a {
+    display: block;
+    background-image: url('../images/logo-cygnus.svg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 285px;
+    height: 32px;
+}
+
+#logo img {
+    max-height: inherit;
+}
+
+#logo span {
+    display: none;
+}
+
+/* ---------------------------
+# BACKGROUND
+---------------------------- */
+.fondo {
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 0;
+    height: 100%;
+}
+
+.fondo.left {
+    width: 20%;
+    left: 0;
+    background-image: url('../images/fondo-lineas-left.png');
+    background-position: left top;
+}
+
+.fondo.right {
+    width: 20%;
+    right: 0;
+    background-image: url('../images/fondo-lineas-right.png');
+    background-position: right center;
+}
+
+/* ---------------------------
+# MOD SERVICIOS
+---------------------------- */
+.mod-servicios {
+    width: 100%;
+    float: left;
+    margin-bottom: 4rem;
+}
+
+/* ico */
+.mod-servicios i::before {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: auto !important;
+}
+
+/* textos */
+.mod-servicios h4,
+.mod-servicios p {
+    width: 100%;
+    float: left;
+    padding-left: 80px;
+}
+
+.mod-servicios h4 {
+    color: var(--color-1);
+    font-size: 1.8rem;
+}
+
+.mod-servicios p {
+    color: var(--color-4);
+}
+
+/* ---------------------------
+# MOD PORTFOLIO
+---------------------------- */
+.mod-portfolio {
+    z-index: 900;
+}
+
+/* cols */
+.mod-portfolio .cols-2-5 {
+    padding: 0;
+}
+
+.mod-portfolio .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 52 74 / 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.mod-portfolio .hover h4 {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.mod-portfolio .hover h4 span {
+    font-size: 60%;
+}
+
+.mod-portfolio .ratio-75:hover .hover {
+    opacity: 1;
+}
+
+/* ---------------------------
+# SLIDER'S
+---------------------------- */
+
+/* GALERÍA CLIENTES */
+.galeria {
+    padding: 0 6rem;
+    margin: auto;
+}
+
+/* img */
+.galeria img {
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.galeria img:hover {
+    filter: grayscale(0);
+}
+
+/* nav */
+.galeria .prev::before,
+.galeria .next::before {
+    content: '';
+    background-image: url('../images/flecha.png');
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.galeria .prev::before {
+    transform: rotate(180deg);
+}
+
+/* ---------------------------
+# FORM'S
+---------------------------- */
+
+/* FORM CONTACTO */
+.form-contacto input,
+.form-contacto textarea {
+    border: none;
+    border-bottom: 1px solid var(--color-2);
+    background-color: #f5f5f5;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.form-contacto textarea {
+    height: 104px;
+}
+
+.form-contacto input[type='submit'] {
+    width: 100%;
+    float: left;
+    color: #fff;
+    background-color: var(--color-2);
+    border-color: var(--color-2);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.form-contacto input[type='submit']:hover {
+    background-color: var(--color-3);
+    border-color: var(--color-3);
+}
+
+/* textos */
+.form-contacto h6 {
+    width: 100%;
+    float: left;
+    text-align: center;
+    color: var(--color-2);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+/* placeholder */
+.form-contacto input::input-placeholder {
+    color: #666;
+    font-weight: 400;
+}
+
+.form-contacto input::placeholder {
+    color: #666;
+    font-weight: 400;
+}
+
+.form-contacto input:placeholder {
+    color: #666;
+    font-weight: 400;
+}
+
+.form-contacto textarea::input-placeholder {
+    color: #666;
+    font-weight: 400;
+}
+
+.form-contacto textarea::placeholder {
+    color: #666;
+    font-weight: 400;
+}
+
+.form-contacto textarea:placeholder {
+    color: #666;
+    font-weight: 400;
+}
+
+/* msj */
+.msj-ok,
+.msj-error {
+    width: 100%;
+    float: left;
+    padding: 15px 5px;
+    margin: 10px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.msj-ok {
+    background-color: #f7ffea;
+    color: #6aab30;
+    border: 1px solid #6aab30;
+}
+
+.msj-error {
+    background-color: #ffd6d6;
+    color: #f00;
+}
+
+.msj-ok::before,
+.msj-error::before {
+    content: '';
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+}
+
+.msj-ok::before {
+    background-image: url('../images/ico-ok.svg');
+}
+
+.msj-error::before {
+    background-image: url('../images/warning.svg');
+}
+
+/* ---------------------------
+# EFECTOS
+---------------------------- */
+.transition {
+    transition: all 0.8s ease;
+}
+
+.efecto {
+    opacity: 0;
+    transform: translateY(400px);
+}
+
+/* ---------------------------
+# FANCYBOX
+---------------------------- */
+.fancybox-bg {
+    background: #333;
+}
+
+.fancybox-navigation {
+    position: initial !important;
+}
+
+.fancybox-button,
+.fancybox-infobarbody,
+.fancybox-arrow::after {
+    background-color: rgb(0 0 0 / 80%);
+}
+
+.fancybox-arrow:hover {
+    opacity: 1 !important;
+}
+
+.fancybox-image-wrap {
+    max-width: 90%;
+    margin: auto !important;
+}
+
+.fancybox-close-small::after {
+    color: #202020;
+    font-size: 20px;
+}
+
+.popup-fbx {
+    display: none;
+    max-width: 800px;
+}
+
+.popup-fbx h5 {
+    width: 100%;
+    float: left;
+    margin: 20px 0;
+    color: #da251c;
+}
