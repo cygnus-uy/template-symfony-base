@@ -17,8 +17,6 @@ class NonceGenerator extends AbstractExtension
 
 	public function getNonce(): string
 	{
-		$nonceG = new ServiceNonceGenerator();
-		
-		return 	ServiceNonceGenerator::getNonce();
+		return ServiceNonceGenerator::getNonce();
 	}
 }

@@ -8,15 +8,16 @@ class NonceGenerator
 
 	public function __construct()
 	{
-		self::$nonce = base64_encode(random_bytes(20));
+		self::$nonce = md5(base64_encode(random_bytes(20)));
 	}
 
 	public static function getNonce(): string
 	{
-		if (!self::$nonce) {
-			self::$nonce = base64_encode(random_bytes(20));
-		}
-
 		return self::$nonce;
+	}
+
+	public static function setNonce(string $nonce): string
+	{
+		return self::$nonce = $nonce;
 	}
 }
