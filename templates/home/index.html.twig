@@ -9,7 +9,7 @@
 {% endblock stylesheets %}
 {% block javascripts %}
     {% for jsFile in encore_entry_js_files('app', 'website-config') %}
-        <script nonce="a6d2c5203bc7da2cf1eb6e3dfaa89dcb" src="{{ asset(jsFile) }}" defer></script>
+        <script nonce="{{ getNonce() }}" src="{{ asset(jsFile) }}" defer></script>
     {% endfor %}
 {% endblock javascripts %}
 
