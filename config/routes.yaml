@@ -32,3 +32,8 @@ app_locale:
         # * for temporary redirects, it uses the 307 status code instead of 302
         # * for permanent redirects, it uses the 308 status code instead of 301
         keepRequestMethod: true
+
+nelmio_security:
+    path:     /nelmio/csp/report
+    defaults: { _controller: nelmio_security.csp_reporter_controller::indexAction }
+    methods:  [POST]

@@ -5,11 +5,13 @@
 {% endblock title %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('app', null, 'website-config') }}
+    {% for cssFile in encore_entry_css_files('app', 'website-config') %}
+        <link nonce="{{ csp_nonce('style') }}" rel="stylesheet" href="{{ cssFile }}" />
+    {% endfor %}
 {% endblock stylesheets %}
 {% block javascripts %}
     {% for jsFile in encore_entry_js_files('app', 'website-config') %}
-        <script nonce="{{ getNonce() }}" src="{{ asset(jsFile) }}" defer></script>
+        <script nonce="{{ csp_nonce('script') }}" src="{{ asset(jsFile) }}" defer></script>
     {% endfor %}
 {% endblock javascripts %}
 

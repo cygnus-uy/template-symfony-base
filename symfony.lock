@@ -35,6 +35,18 @@
             "./migrations/.gitignore"
         ]
     },
+    "nelmio/security-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.4",
+            "ref": "65726efb67ff51d89de38195bc0d230fa811f64d"
+        },
+        "files": [
+            "config/packages/nelmio_security.yaml"
+        ]
+    },
     "phpunit/phpunit": {
         "version": "9.5",
         "recipe": {
@@ -170,7 +182,7 @@
             "ref": "213676c4ec929f046dfde5ea8e97625b81bc0578"
         },
         "files": [
-            "./config/packages/monolog.yaml"
+            "config/packages/monolog.yaml"
         ]
     },
     "symfony/notifier": {
