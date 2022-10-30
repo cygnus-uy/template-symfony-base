@@ -6,12 +6,14 @@
 
 {% block stylesheets %}
     {% for cssFile in encore_entry_css_files('app', 'website-config') %}
-        <link nonce="{{ getNonce() }}" rel="stylesheet" href="{{ cssFile }}" />
+        <link {{ app.environment == 'prod' ? 'nonce="' ~ csp_nonce('style') ~ '"' : '' }}
+            rel="stylesheet"
+            href="{{ cssFile }}" />
     {% endfor %}
 {% endblock stylesheets %}
 {% block javascripts %}
     {% for jsFile in encore_entry_js_files('app', 'website-config') %}
-        <script nonce="{{ getNonce() }}" src="{{ asset(jsFile) }}" defer></script>
+        <script nonce="{{ csp_nonce('script') }}" src="{{ asset(jsFile) }}" defer></script>
     {% endfor %}
 {% endblock javascripts %}
 

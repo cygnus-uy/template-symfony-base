@@ -11,10 +11,9 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 #[AsEventListener(event: 'kernel.response', method: 'onKernelResponse')]
 class RequestListener
 {
-
     public function onKernelRequest(RequestEvent $event)
     {
-        new NonceGenerator;
+        new NonceGenerator();
     }
 
     public function onKernelResponse(ResponseEvent $event)
@@ -24,7 +23,7 @@ class RequestListener
             return;
         }
 
-        $response = $event->getResponse();
+        // $response = $event->getResponse();
 
         // Set multiple headers simultaneously
         // $response->headers->add([
@@ -32,7 +31,7 @@ class RequestListener
         // 	'env' => $APP_ENV
         // ]);
 
-        $APP_ENV = getenv('APP_ENV') ?: $_ENV['APP_ENV'];
+        /* $APP_ENV = getenv('APP_ENV') ?: $_ENV['APP_ENV'];
         $nonce_script = NonceGenerator::getNonce();
 
         if ($APP_ENV) {
@@ -41,6 +40,6 @@ class RequestListener
             } elseif ($APP_ENV === "dev") {
                 $response->headers->set("Content-Security-Policy", "default-src 'self'");
             }
-        }
+        } */
     }
 }

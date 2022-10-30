@@ -8,15 +8,13 @@ use Twig\TwigFunction;
 
 class NonceGenerator extends AbstractExtension
 {
-	public function getFunctions()
-	{
-		return [
-			new TwigFunction('getNonce', [$this, 'getNonce']),
-		];
-	}
+    public function getFunctions()
+    {
+        return [new TwigFunction('getNonce', [$this, 'getNonce'])];
+    }
 
-	public function getNonce(): string
-	{
-		return ServiceNonceGenerator::getNonce();
-	}
+    public function getNonce(): string
+    {
+        return ServiceNonceGenerator::getNonce();
+    }
 }
