@@ -27,6 +27,7 @@ nelmio_security:
 
     # prevents inline scripts, unsafe eval, external scripts/images/styles/frames, etc
     csp:
+        enabled: true
         hosts: []
         content_types: []
         hash:
@@ -40,8 +41,10 @@ nelmio_security:
                 - 'self'
             script-src:
                 - 'self'
+                - 'strict-dynamic'
             style-src:
                 - 'self'
+                - 'strict-dynamic'
             img-src:
                 - 'self'
             object-src:

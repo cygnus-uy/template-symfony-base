@@ -11,10 +11,9 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 #[AsEventListener(event: 'kernel.response', method: 'onKernelResponse')]
 class RequestListener
 {
-
     public function onKernelRequest(RequestEvent $event)
     {
-        new NonceGenerator;
+        new NonceGenerator();
     }
 
     public function onKernelResponse(ResponseEvent $event)

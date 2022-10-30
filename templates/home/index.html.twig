@@ -6,7 +6,9 @@
 
 {% block stylesheets %}
     {% for cssFile in encore_entry_css_files('app', 'website-config') %}
-        <link nonce="{{ csp_nonce('style') }}" rel="stylesheet" href="{{ cssFile }}" />
+        <link {{ app.environment == 'prod' ? 'nonce="' ~ csp_nonce('style') ~ '"' : '' }}
+            rel="stylesheet"
+            href="{{ cssFile }}" />
     {% endfor %}
 {% endblock stylesheets %}
 {% block javascripts %}
