@@ -27,6 +27,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './app/website/index.js')
+    .addEntry('app-home', './app/website/home.js')
 
     .copyFiles({
         from: './app/website/images',

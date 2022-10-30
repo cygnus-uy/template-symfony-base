@@ -5,15 +5,17 @@
 {% endblock title %}
 
 {% block stylesheets %}
-    {% for cssFile in encore_entry_css_files('app', 'website-config') %}
+    {% for cssFile in encore_entry_css_files('app-home', 'website-config') %}
         <link {{ app.environment == 'prod' ? 'nonce="' ~ csp_nonce('style') ~ '"' : '' }}
             rel="stylesheet"
             href="{{ cssFile }}" />
     {% endfor %}
 {% endblock stylesheets %}
 {% block javascripts %}
-    {% for jsFile in encore_entry_js_files('app', 'website-config') %}
+    {% for jsFile in encore_entry_js_files('app-home', 'website-config') %}
+        {% cspscript %}
         <script nonce="{{ csp_nonce('script') }}" src="{{ asset(jsFile) }}" defer></script>
+        {% endcspscript %}
     {% endfor %}
 {% endblock javascripts %}
 
@@ -29,7 +31,7 @@
 {% endblock header %}
 
 {% block main %}
-    <!-- SLIDER INICIO -->
+    {# INICIO #}
     <section role="contentinfo" class="row portada full-height">
         <a href="#about-us" class="btn-scroll"></a>
 
@@ -40,7 +42,9 @@
             </h2>
         </div>
     </section>
+    {# / INICIO #}
 
+    {# QUIÉNES SOMOS #}
     <section role="contentinfo" id="about-us" class="quienes-somos contenido efecto transition">
         <div class="cont-mini-2">
             <header class="cabezal">
@@ -66,19 +70,95 @@
             </article>
         </div>
     </section>
+    {# / QUIÉNES SOMOS #}
 
-    <section role="contentinfo"
-        id="{{ locale == 'es' ? 'portfolio' : 'portfolio' }}"
-        class="portfolio contenido efecto transition">
+    {# SERVICIOS #}
+    <section role="contentinfo" id="services" class="servicios contenido efecto transition">
+        <div class="cont">
+            <header class="cabezal">
+                <h3>
+                    {{ 'Servicios'|trans }}
+                </h3>
+            </header>
+
+            {% for i in 1..4 %}
+                <div class="cols-4">
+                    <div class="mod-servicios">
+                        <i class="ico ico-programacion"></i>
+                        <h4>
+                            {{ 'Programación web'|trans }}
+                        </h4>
+                        <p>
+                            {{
+                                'Phasellus nisl arcu, dignissim a orci et, semper rhoncus sem. Fusce id augue in leo iaculis feugiat ut vitae orci.'|trans
+                            }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cols-4">
+                    <div class="mod-servicios">
+                        <i class="ico ico-programacion"></i>
+                        <h4>
+                            {{ 'Programación web'|trans }}
+                        </h4>
+                        <p>
+                            {{
+                                'Phasellus nisl arcu, dignissim a orci et, semper rhoncus sem. Fusce id augue in leo iaculis feugiat ut vitae orci.'|trans
+                            }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cols-4">
+                    <div class="mod-servicios">
+                        <i class="ico ico-programacion"></i>
+                        <h4>
+                            {{ 'Programación web'|trans }}
+                        </h4>
+                        <p>
+                            {{
+                                'Phasellus nisl arcu, dignissim a orci et, semper rhoncus sem. Fusce id augue in leo iaculis feugiat ut vitae orci.'|trans
+                            }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row"></div>
+            {% endfor %}
+        </div>
+    </section>
+    {# / SERVICIOS #}
+
+    {# PORTFOLIO #}
+    <section role="contentinfo" id="portfolio" class="portfolio contenido transition no-efecto">
         <header class="cabezal">
             <h3>
                 {{ 'Portfolio'|trans }}
             </h3>
         </header>
 
-        <div class="row mod-portfolio"></div>
+        <div class="row mod-portfolio">
+            {% for i in 1..35 %}
+                <div class="cols-2-5">
+                    <a class="ratio-75"
+                        data-fancybox="portfolio"
+                        data-src="{{ asset('build/website/images/ejemplo-1.png') }}"
+                        href="micuartito.com.uy">
+                        <div class="hover">
+                            <h4>
+                                Mi Cuartito<br /><!-- <span>Web</span> -->
+                            </h4>
+                        </div>
+                        <img src="{{ asset('build/website/images/ejemplo-1.png') }}" alt="" />
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </section>
+    {# / PORTFOLIO #}
 
+    {# CLIENTES QUE CONFIAN EN NOSOTROS #}
     <section role="contentinfo"
         id="{{ locale == 'es' ? 'clientes' : 'clientes' }}"
         class="clientes efecto transition">
@@ -93,49 +173,115 @@
                 <i class="prev"></i>
                 <i class="next"></i>
 
-                <div class="owl-carousel">
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
-                    </div>
+                <div class="swiper-wrapper">
+                    {% for i in 1..4 %}
+                        <div class="item swiper-slide">
+                            <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
+                        </div>
+                        <div class="item swiper-slide">
+                            <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
+                        </div>
+                        <div class="item swiper-slide">
+                            <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
+                        </div>
+                    {% endfor %}
                 </div>
+
             </div>
         </div>
     </section>
+    {# / CLIENTES QUE CONFIAN EN NOSOTROS #}
 {% endblock main %}
 
+{# FOOTER #}
 {% block footer %}
-    <div class="cont"></div>
+    <div class="cont">
+        {# CONTACTO #}
+        <section role="contentinfo" id="contact" class="contacto contenido">
+            <div class="cont-mini">
+                <header class="cabezal">
+                    <h3>
+                        {{ 'Contacto'|trans }}
+                    </h3>
+                </header>
+
+                <form action="" method="post" id="enviado" class="form-contacto">
+                    <h6>
+                        {{ 'Envianos tu consulta'|trans }}
+                    </h6>
+
+                    <div class="cols-6">
+                        <div class="caja-form required">
+                            <input name="nombre"
+                                type="text"
+                                placeholder="{{ 'Nombre'|trans }}"
+                                value=""
+                                required />
+                        </div>
+
+                        <div class="caja-form required">
+                            <input name="tel"
+                                type="text"
+                                value=""
+                                placeholder="{{ 'Teléfono'|trans }}"
+                                required />
+                        </div>
+
+                        <div class="caja-form required">
+                            <input name="correo"
+                                type="email"
+                                value=""
+                                placeholder="{{ 'Correo electrónico'|trans }}"
+                                required />
+                        </div>
+                        <label for="verificacion" class="verif">
+                            ¡Si ves esto, no llenes el siguiente campo!
+                        </label>
+                        <input name="verificacion" value="" class="verif" />
+                    </div>
+
+                    <div class="cols-6">
+                        <div class="caja-form required">
+                            <textarea name="msj"
+                                placeholder="{{ 'Mensaje'|trans }}"
+                                required></textarea>
+                        </div>
+
+                        <input type="submit"
+                            name="submit"
+                            class="submit"
+                            value="{{ 'ENVIAR'|trans }}" />
+                    </div>
+                </form>
+
+                <address role="contentinfo">
+                    <div class="cols-4">
+                        <i class="ico ico-ubicacion"></i>
+                        <h6>
+                            {{ 'Dirección'|trans }}
+                        </h6>
+                        <span>Salto 1057. Montevideo, Uruguay</span>
+                    </div>
+
+                    <div class="cols-4 pl-80">
+                        <i class="ico ico-tel"></i>
+                        <h6>
+                            {{ 'Teléfono'|trans }}
+                        </h6>
+                        <span><a href="tel:+59824134539">+598 2413 4539</a></span>
+                    </div>
+
+                    <div class="cols-4">
+                        <i class="ico ico-correo"></i>
+                        <h6>
+                            {{ 'Correo electrónico'|trans }}
+                        </h6>
+                        <a href="mailto:"></a>
+                    </div>
+                </address>
+            </div>
+        </section>
+        {# / CONTACTO #}
+    </div>
 {% endblock footer %}
+{# / FOOTER #}

@@ -37,18 +37,23 @@ nelmio_security:
             browser_adaptive:
                 enabled: false
             report-uri: '%router.request_context.base_url%/nelmio/csp/report'
-            default-src:
-                - 'self'
+            # default-src:
+            #     - 'self'
+            #     - 'strict-dynamic'
+            #     - 'unsafe-inline'
             script-src:
-                - 'self'
                 - 'strict-dynamic'
-            style-src:
-                - 'self'
-                - 'strict-dynamic'
-            img-src:
-                - 'self'
-            object-src:
-                - 'self'
+                - 'unsafe-inline'
+            # style-src:
+            #     - 'self'
+            # img-src:
+            #     - 'self'
+            # font-src:
+            #     - 'self'
+            #     - 'strict-dynamic'
+            #     - 'unsafe-inline'
+            # object-src:
+            #     - 'self'
             frame-src:
                 - 'self'
                 - 'https://www.youtube.com'
