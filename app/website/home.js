@@ -1,22 +1,24 @@
-import Swiper, { Navigation } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/navigation'
+import Splide from '@splidejs/splide'
+import '@splidejs/splide/css'
+// import '@splidejs/splide/css/core';
 
 import { startCommonScript } from './index'
 
-startCommonScript()
+document.addEventListener('DOMContentLoaded', function () {
+    startCommonScript()
 
-window.addEventListener('load', () => {
-    const swiper = new Swiper('.galeria', {
-        slidesPerView: 8,
-        spaceBetween: 30,
-        freeMode: true,
-        autoHeight: true,
-        setWrapperSize: true,
-        modules: [Navigation],
-        navigation: {
-            nextEl: '.next',
-            prevEl: '.prev'
+    new Splide('.splide', {
+        perPage: 8,
+        breakpoints: {
+            640: {
+                perPage: 2
+            }
+        },
+        classes: {
+            arrows: 'splide__arrows',
+            arrow: 'splide__arrow',
+            prev: 'splide__arrow--prev prev',
+            next: 'splide__arrow--next next'
         }
-    })
+    }).mount()
 })

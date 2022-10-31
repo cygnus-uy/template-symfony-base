@@ -2,7 +2,7 @@ nelmio_security:
     # signs/verifies all cookies
     signed_cookie:
         names: ['*']
-        secret: this_is_very_secret # defaults to global %secret% parameter
+        secret: '%env(APP_SECRET)%' # defaults to global %secret% parameter
         hash_algo: sha256 # defaults to sha256, see `hash_algos()` for available algorithms
     # prevents framing of the entire site
     clickjacking:

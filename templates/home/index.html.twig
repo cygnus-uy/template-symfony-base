@@ -169,24 +169,27 @@
                 </h3>
             </header>
 
-            <div class="row galeria">
-                <i class="prev"></i>
-                <i class="next"></i>
-
-                <div class="swiper-wrapper">
-                    {% for i in 1..4 %}
-                        <div class="item swiper-slide">
-                            <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
-                        </div>
-                        <div class="item swiper-slide">
-                            <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
-                        </div>
-                        <div class="item swiper-slide">
-                            <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
-                        </div>
-                    {% endfor %}
+            <div class="row splide">
+                <div class="splide__arrows splide__arrows--ltr">
+                    <i class="splide__arrow prev"></i>
+                    <i class="splide__arrow next"></i>
                 </div>
 
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        {% for i in 1..4 %}
+                            <li class="splide__slide">
+                                <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
+                            </li>
+                            <li class="splide__slide">
+                                <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
+                            </li>
+                            <li class="splide__slide">
+                                <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </section>

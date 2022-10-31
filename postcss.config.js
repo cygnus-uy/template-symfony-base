@@ -5,7 +5,8 @@ module.exports = {
         require('autoprefixer'),
         require('tailwindcss'),
         purgecss({
-            content: ['./**/*.html', './templates/**/*.html.twig']
+            content: ['./**/*.html', './templates/**/*.html.twig'],
+            safelist: ['is-initialized', 'is-rendered']
         })
     ]
 }
