@@ -15,5 +15,6 @@ class Kernel extends BaseKernel
         date_default_timezone_set(
             $this->getContainer()->getParameter('timezone'),
         );
+        setlocale(LC_ALL, $this->getContainer()->getParameter('lang'), 'es');
     }
 }
