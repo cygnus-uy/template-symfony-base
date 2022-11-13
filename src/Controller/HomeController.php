@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,13 +26,10 @@ class HomeController extends AbstractController
     ]
     public function index(): Response
     {
-        $session = $this->requestStack->getSession();
-
-        $session->set('attribute-name', 'attribute-value');
+        $contactForm = $this->createForm(ContactType::class);
 
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-            'attributeName' => $session->get('attribute-name')
+            'contactForm' => $contactForm->createView(),
         ]);
     }
 }

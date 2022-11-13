@@ -5,11 +5,18 @@
 {% endblock title %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('app', null, 'website-config') }}
+    {% for cssFile in encore_entry_css_files('app-home', 'website-config') %}
+        <link {{ app.environment == 'prod' ? 'nonce="' ~ csp_nonce('style') ~ '"' : '' }}
+            rel="stylesheet"
+            href="{{ cssFile }}" />
+    {% endfor %}
 {% endblock stylesheets %}
+
 {% block javascripts %}
-    {% for jsFile in encore_entry_js_files('app', 'website-config') %}
-        <script nonce="a6d2c5203bc7da2cf1eb6e3dfaa89dcb" src="{{ asset(jsFile) }}" defer></script>
+    {% for jsFile in encore_entry_js_files('app-home', 'website-config') %}
+        {% cspscript %}
+        <script nonce="{{ csp_nonce('script') }}" src="{{ asset(jsFile) }}" defer></script>
+        {% endcspscript %}
     {% endfor %}
 {% endblock javascripts %}
 
@@ -18,7 +25,20 @@
 {% endblock header %}
 
 {% block main %}
+    {{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
 
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.task) }}
+        </div>
+        <div class="col" id="some-custom-id">
+            {{ form_row(form.dueDate) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
 {% endblock main %}
 
 {% block footer %}

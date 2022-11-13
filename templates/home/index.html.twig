@@ -11,6 +11,7 @@
             href="{{ cssFile }}" />
     {% endfor %}
 {% endblock stylesheets %}
+
 {% block javascripts %}
     {% for jsFile in encore_entry_js_files('app-home', 'website-config') %}
         {% cspscript %}
@@ -207,6 +208,49 @@
                         {{ 'Contacto'|trans }}
                     </h3>
                 </header>
+
+                {{
+                    form_start(
+                        contactForm,
+                        {
+                            method: 'post',
+                            attr: {
+                                id: 'enviado',
+                                class: 'form-contacto'
+                            }
+                        }
+                    )
+                }}
+                <h6>
+                    {{ 'Envianos tu consulta'|trans }}
+                </h6>
+
+                <div class="cols-6">
+                    <div class="caja-form required">
+                        {{ form_widget(contactForm.name) }}
+                    </div>
+
+                    <div class="caja-form required">
+                        {{ form_widget(contactForm.phone) }}
+                    </div>
+
+                    <div class="caja-form required">
+                        {{ form_widget(contactForm.email) }}
+                    </div>
+                </div>
+
+                <div class="cols-6">
+                    <div class="caja-form required">
+                        {{ form_widget(contactForm.message) }}
+                    </div>
+
+                    {{ form_widget(contactForm.send) }}
+                </div>
+
+                <div class="my-custom-class-for-errors">
+                    {{ form_errors(contactForm) }}
+                </div>
+                {{ form_end(contactForm) }}
 
                 <form action="" method="post" id="enviado" class="form-contacto">
                     <h6>

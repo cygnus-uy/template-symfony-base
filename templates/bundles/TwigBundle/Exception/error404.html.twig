@@ -1,5 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {% for cssFile in encore_entry_css_files('app-home', 'website-config') %}
+        <link {{ app.environment == 'prod' ? 'nonce="' ~ csp_nonce('style') ~ '"' : '' }}
+            rel="stylesheet"
+            href="{{ cssFile }}" />
+    {% endfor %}
+{% endblock stylesheets %}
+
 {% block body %}
     <h1>
         {{ status_code }} {{ status_text }}
