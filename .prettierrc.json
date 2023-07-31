@@ -3,13 +3,9 @@
     "useTabs": false,
     "semi": false,
     "singleQuote": true,
-    "printWidth": 80,
-    "plugins": [
-        "./node_modules/prettier-plugin-twig-melody",
-        "./node_modules/@prettier/plugin-php",
-        "./node_modules/prettier-plugin-tailwindcss"
-    ],
-    "twigPrintWidth": 100,
+    "printWidth": 120,
+    "plugins": ["prettier-plugin-twig-melody", "@prettier/plugin-php"],
+    "twigPrintWidth": 120,
     "twigSingleQuote": true,
     "twigAlwaysBreakObjects": true,
     "twigFollowOfficialCodingStandards": true,
@@ -31,6 +27,5 @@
     "proseWrap": "preserve",
     "requirePragma": false,
     "trailingComma": "none",
-    "endOfLine": "lf",
-    "tailwindConfig": "./tailwind.config.js"
+    "endOfLine": "lf"
 }

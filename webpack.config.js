@@ -1,10 +1,6 @@
-/* eslint-disable spaced-comment */
 const Encore = require('@symfony/webpack-encore')
-const WebpackPwaManifest = require('webpack-pwa-manifest')
-const path = require('path')
-const Dotenv = require('dotenv-webpack')
 
-//////////////// WEBSITE CONFIG //////////////////
+/// ///////////// WEBSITE CONFIG //////////////////
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -26,28 +22,28 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('app', './app/website/index.js')
+    .addEntry('app', './assets/website/app.js')
+    .addStyleEntry('styles', './assets/website/styles/index.css')
+    .addStyleEntry('styles-mobile', './assets/website/styles/mobile.css')
 
     .copyFiles({
-        from: './app/website/images',
+        from: './assets/website/images',
 
         // optional target path, relative to the output dir
         to: 'images/[path][name].[ext]'
 
         // if versioning is enabled, add the file hash too
-        //to: 'images/[path][name].[hash:8].[ext]',
+        // to: 'images/[path][name].[hash:8].[ext]',
 
         // only copy files matching this pattern
-        //pattern: /\.(png|jpg|jpeg)$/
+        // pattern: /\.(png|jpg|jpeg)$/
     })
 
     .configureFontRule({
         type: 'asset'
-        //maxSize: 4 * 1024
-    })
 
-    // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-    // .enableStimulusBridge('./assets/controllers.json')
+        // maxSize: 4 * 1024
+    })
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -81,157 +77,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    .enableSassLoader()
-
-    .enablePostCssLoader()
-    .addPlugin(
-        new Dotenv({
-            path: './.env',
-            safe: false,
-            allowEmptyValues: true,
-            systemvars: true
-        })
-    )
-    .addPlugin(
-        new WebpackPwaManifest({
-            filename: 'pwa-manifest.json',
-            name: 'Template Symfony Base Website',
-            short_name: 'TemplateSymfonyBaseWebsite',
-            description: 'My awesome Progressive Web App!',
-            display: 'standalone',
-            background_color: '#ffffff',
-            start_url: process.env.WEBSITE_URL_BASE,
-            theme_color: '#ffffff',
-            crossorigin: null, //can be null, use-credentials or anonymous
-            publicPath: './',
-            icons: [
-                {
-                    src: path.resolve(
-                        'app/website/images/favicon/apple-touch-icon-180x180.png'
-                    ),
-                    sizes: [57, 72, 76, 114, 120, 144, 152, 180], // multiple sizes
-                    destination: path.join('pwa', 'icons')
-                },
-                {
-                    src: path.resolve(
-                        'app/website/images/favicon/apple-touch-icon.png'
-                    ),
-                    size: '57x57',
-                    destination: path.join('pwa', 'icons'),
-                    purpose: 'maskable'
-                },
-                {
-                    src: path.resolve('app/website/images/favicon/favicon.ico'),
-                    size: '64x64',
-                    destination: path.join('pwa', 'icons')
-                }
-            ]
-        })
-    )
-
-// uncomment if you use TypeScript
-//.enableTypeScriptLoader()
-
-// uncomment if you use React
-//.enableReactPreset()
-
-// uncomment to get integrity="..." attributes on your script & link tags
-// requires WebpackEncoreBundle 1.4 or higher
-//.enableIntegrityHashes(Encore.isProduction())
-
-// uncomment if you're having problems with a jQuery plugin
-//.autoProvidejQuery()
-
-// build the first configuration
-const websiteConfig = Encore.getWebpackConfig()
-
-// Set a unique name for the config (needed later!)
-websiteConfig.name = 'website-config'
-
-// reset Encore to build the second config
-Encore.reset()
-
-///////////////////////////////////////////////////////
-
-//////////////// ADMIN CONFIG //////////////////
-
-// Manually configure the runtime environment if not already configured yet by the "encore" command.
-// It's useful when you use tools that rely on webpack.config.js file.
-if (!Encore.isRuntimeEnvironmentConfigured()) {
-    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev')
-}
-
-Encore
-    // directory where compiled assets will be stored
-    .setOutputPath('public/build/admin/')
-    // public path used by the web server to access the output path
-    .setPublicPath('/build/admin/')
-    // only needed for CDN's or subdirectory deploy
-    //.setManifestKeyPrefix('build/')
-
-    /*
-     * ENTRY CONFIG
-     *
-     * Each entry will result in one JavaScript file (e.g. app.js)
-     * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
-     */
-    .addEntry('app', './app/admin/index.js')
-
-    .copyFiles({
-        from: './app/admin/images',
-
-        // optional target path, relative to the output dir
-        to: 'images/[path][name].[ext]'
-
-        // if versioning is enabled, add the file hash too
-        //to: 'images/[path][name].[hash:8].[ext]',
-
-        // only copy files matching this pattern
-        //pattern: /\.(png|jpg|jpeg)$/
-    })
-
-    .configureFontRule({
-        type: 'asset'
-        //maxSize: 4 * 1024
-    })
-
-    // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-    // .enableStimulusBridge('./assets/controllers.json')
-
-    // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
-    .splitEntryChunks()
-
-    // will require an extra script tag for runtime.js
-    // but, you probably want this, unless you're building a single-page app
-    .enableSingleRuntimeChunk()
-
-    /*
-     * FEATURE CONFIG
-     *
-     * Enable & configure other features below. For a full
-     * list of features, see:
-     * https://symfony.com/doc/current/frontend.html#adding-more-features
-     */
-    .cleanupOutputBeforeBuild()
-    .enableBuildNotifications()
-    .enableSourceMaps(!Encore.isProduction())
-    // enables hashed filenames (e.g. app.abc123.css)
-    .enableVersioning(Encore.isProduction())
-
-    // configure Babel
-    // .configureBabel((config) => {
-    //     config.plugins.push('@babel/a-babel-plugin');
-    // })
-
-    // enables and configure @babel/preset-env polyfills
-    .configureBabelPresetEnv((config) => {
-        config.useBuiltIns = 'usage'
-        config.corejs = '3.23'
-    })
-
-    // enables Sass/SCSS support
-    .enableSassLoader()
-
+    // .enableSassLoader()
     .enablePostCssLoader()
 
     // uncomment if you use TypeScript
@@ -247,15 +93,15 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
 
-// build the second configuration
-const adminConfig = Encore.getWebpackConfig()
+// build the first configuration
+const websiteConfig = Encore.getWebpackConfig()
 
 // Set a unique name for the config (needed later!)
-adminConfig.name = 'admin-config'
+websiteConfig.name = 'website-config'
 
 // reset Encore to build the second config
 Encore.reset()
 
-///////////////////////////////////////////////////////
+/// ////////////////////////////////////////////////////
 
-module.exports = [adminConfig, websiteConfig]
+module.exports = [websiteConfig]

@@ -320,6 +320,26 @@ msgstr "This value is not a valid CIDR notation."
 msgid "The value of the netmask should be between {{ min }} and {{ max }}."
 msgstr "The value of the netmask should be between {{ min }} and {{ max }}."
 
+msgid "The filename is too long. It should have {{ filename_max_length }} character or less."
+msgid_plural "The filename is too long. It should have {{ filename_max_length }} characters or less."
+msgstr[0] "The filename is too long. It should have {{ filename_max_length }} character or less."
+msgstr[1] "The filename is too long. It should have {{ filename_max_length }} characters or less."
+
+msgid "The password strength is too low. Please use a stronger password."
+msgstr "The password strength is too low. Please use a stronger password."
+
+msgid "This value contains characters that are not allowed by the current restriction-level."
+msgstr "This value contains characters that are not allowed by the current restriction-level."
+
+msgid "Using invisible characters is not allowed."
+msgstr "Using invisible characters is not allowed."
+
+msgid "Mixing numbers from different scripts is not allowed."
+msgstr "Mixing numbers from different scripts is not allowed."
+
+msgid "Using hidden overlay characters is not allowed."
+msgstr "Using hidden overlay characters is not allowed."
+
 msgid "This form should not contain extra fields."
 msgstr "This form should not contain extra fields."
 

@@ -5,8 +5,14 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     timezone: '%env(APP_TIMEZONE)%'
-    website.urlBase: '%env(WEBSITE_URL_BASE)%'
-    website.name: '%env(WEBSITE_NAME)%'
+    lang: '%env(APP_LANG)%'
+    website.urlBase: '%env(APP_WEBSITE_URL_BASE)%'
+    website.name: '%env(APP_WEBSITE_NAME)%'
+    public_dir_name: '%env(PUBLIC_DIR_NAME)%'
+    tmp_storage_path: '%env(TMP_STORAGE_PATH)%'
+    cache_storage_path: '%env(CACHE_STORAGE_PATH)%'
+    media_storage_path: '%env(MEDIA_STORAGE_PATH)%'
+    media_storage_path_index: '%env(MEDIA_STORAGE_PATH_INDEX)%'
 
 services:
     # default configuration for services in *this* file
@@ -25,3 +31,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+when@prod:
+    parameters:
+        .container.dumper.inline_factories: true
+        debug.container.dump: false

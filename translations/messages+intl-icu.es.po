@@ -4,26 +4,5 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 
-msgid "aboutus.title"
-msgstr "Quienes somos"
-
-msgid "contact.title"
-msgstr "Contacto"
-
-msgid "home.title"
-msgstr "Cygnus"
-
-msgid "Quiénes somos"
-msgstr "Quiénes somos"
-
-msgid "Priorizamos la funcionalidad y accesibilidad de cada proyecto, diseñando y programando cada aplicación acorde a las necesidades de cada cliente."
-msgstr "__Priorizamos la funcionalidad y accesibilidad de cada proyecto, diseñando y programando cada aplicación acorde a las necesidades de cada cliente."
-
-msgid "Desde hace más de 10 años trabajamos para clientes de Uruguay y el mundo, creando:\n                    sitios web, intranets, sistemas de administración de contenidos, interfaces de usuario\n                    interactivas, DVD’s / CD’s y banners. entre otros productos."
-msgstr "__Desde hace más de 10 años trabajamos para clientes de Uruguay y el mundo, creando:\n                    sitios web, intranets, sistemas de administración de contenidos, interfaces de usuario\n                    interactivas, DVD’s / CD’s y banners. entre otros productos."
-
-msgid "Portfolio"
-msgstr "Portfolio"
-
-msgid "CLIENTES QUE CONFIAN EN NOSOTROS"
-msgstr "__CLIENTES QUE CONFIAN EN NOSOTROS"
+msgid "Plantilla Base Symfony | Inicio"
+msgstr "Plantilla Base Symfony | Inicio"
