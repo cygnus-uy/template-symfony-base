@@ -1,141 +1,63 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'home.title'|trans }}
+    {{ 'Plantilla Base Symfony | Inicio'|trans }}
 {% endblock title %}
 
 {% block stylesheets %}
-    {% for cssFile in encore_entry_css_files('app', 'website-config') %}
-        <link {{ app.environment == 'prod' ? 'nonce="' ~ csp_nonce('style') ~ '"' : '' }}
-            rel="stylesheet"
-            href="{{ cssFile }}" />
+    {% for cssFile in encore_entry_css_files('styles', 'website-config') %}
+        <link rel="stylesheet" href="{{ cssFile }}" />
+    {% endfor %}
+    {% for cssFile in encore_entry_css_files('styles-mobile', 'website-config') %}
+        <link rel="stylesheet" href="{{ cssFile }}" />
     {% endfor %}
 {% endblock stylesheets %}
+
 {% block javascripts %}
+    {% cspscript %}
+    {# <script nonce="{{ csp_nonce('script') }}" src="https://apps.elfsight.com/p/platform.js" defer></script> #}
+    <script nonce="{{ csp_nonce('script') }}"
+        src="https://static.elfsight.com/platform/platform.js"
+        data-use-service-core
+        defer></script>
+    {% endcspscript %}
     {% for jsFile in encore_entry_js_files('app', 'website-config') %}
+        {% cspscript %}
         <script nonce="{{ csp_nonce('script') }}" src="{{ asset(jsFile) }}" defer></script>
+        {% endcspscript %}
     {% endfor %}
 {% endblock javascripts %}
 
-{% block header %}
-    <div class="cont">
-        {# LOGO #}
-        <h1 id="logo">
-            <a href="" title="{{ website.name }}"></a>
-            <span>{{ website.name }}</span>
-        </h1>
-        {# NAV #}
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; } .example-wrapper
+        code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+        <h1>
+            Hello {{ controller_name }}! ✅
+        </h1>This friendly message is coming from:<ul>
+            <li>
+                Your controller at
+                <code>
+                    <a href="{{ 'C:/Users/samue/OneDrive/Escritorio/www.arbol.mx/src/Controller/HomeController.php'|file_link(
+                            0
+                        ) }}">
+                        src/Controller/HomeController.php
+                    </a>
+                </code>
+            </li>
+            <li>
+                Your template at
+                <code>
+                    <a href="{{ 'C:/Users/samue/OneDrive/Escritorio/www.arbol.mx/templates/home/index.html.twig'|file_link(
+                            0
+                        ) }}">
+                        templates/home/index.html.twig
+                    </a>
+                </code>
+            </li>
+        </ul>
     </div>
-{% endblock header %}
-
-{% block main %}
-    <!-- SLIDER INICIO -->
-    <section role="contentinfo" class="row portada full-height">
-        <a href="#about-us" class="btn-scroll"></a>
-
-        <div class="tx">
-            <h2>
-                Somos un estudio de diseño especializado <br class="pc" />en el desarrollo de
-                soluciones multimedia y web
-            </h2>
-        </div>
-    </section>
-
-    <section role="contentinfo" id="about-us" class="quienes-somos contenido efecto transition">
-        <div class="cont-mini-2">
-            <header class="cabezal">
-                <h3>
-                    {{ 'Quiénes somos'|trans }}
-                </h3>
-            </header>
-
-            <article role="contentinfo" class="center">
-                <p>
-                    {{
-                        'Priorizamos la funcionalidad y accesibilidad de cada proyecto, diseñando y programando cada aplicación acorde a las necesidades de cada cliente.'|trans
-                    }}
-                </p>
-
-                <p>
-                    {{
-                        'Desde hace más de 10 años trabajamos para clientes de Uruguay y el mundo, creando:
-                    sitios web, intranets, sistemas de administración de contenidos, interfaces de usuario
-                    interactivas, DVD’s / CD’s y banners. entre otros productos.'|trans
-                    }}
-                </p>
-            </article>
-        </div>
-    </section>
-
-    <section role="contentinfo"
-        id="{{ locale == 'es' ? 'portfolio' : 'portfolio' }}"
-        class="portfolio contenido efecto transition">
-        <header class="cabezal">
-            <h3>
-                {{ 'Portfolio'|trans }}
-            </h3>
-        </header>
-
-        <div class="row mod-portfolio"></div>
-    </section>
-
-    <section role="contentinfo"
-        id="{{ locale == 'es' ? 'clientes' : 'clientes' }}"
-        class="clientes efecto transition">
-        <div class="cont">
-            <header class="cabezal">
-                <h3>
-                    {{ 'CLIENTES QUE CONFIAN EN NOSOTROS'|trans }}
-                </h3>
-            </header>
-
-            <div class="row galeria">
-                <i class="prev"></i>
-                <i class="next"></i>
-
-                <div class="owl-carousel">
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-3.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-2.jpg') }}" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('build/website/images/11-1.jpg') }}" alt="" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-{% endblock main %}
-
-{% block footer %}
-    <div class="cont"></div>
-{% endblock footer %}
+{% endblock body %}

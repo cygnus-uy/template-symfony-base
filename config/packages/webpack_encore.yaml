@@ -1,9 +1,8 @@
 webpack_encore:
     # The path where Encore is building the assets - i.e. Encore.setOutputPath()
-    output_path: '%kernel.project_dir%/public/'
+    output_path: '%kernel.project_dir%/%public_dir_name%'
     builds:
-        'admin-config': '%kernel.project_dir%/public/build/admin'
-        'website-config': '%kernel.project_dir%/public/build/website'
+        'website-config': '%kernel.project_dir%/%public_dir_name%/build/website'
     # If multiple builds are defined (as shown below), you can disable the default build:
     # output_path: false
 
@@ -28,22 +27,16 @@ webpack_encore:
 
     # If you have multiple builds:
     # builds:
-        # pass "frontend" as the 3rg arg to the Twig functions
-        # {{ encore_entry_script_tags('entry1', null, 'frontend') }}
-
         # frontend: '%kernel.project_dir%/public/frontend/build'
 
-    # Cache the entrypoints.json (rebuild Symfony's cache when entrypoints.json changes)
-    # Put in config/packages/prod/webpack_encore.yaml
-    # cache: true
+        # pass the build name as the 3rd argument to the Twig functions
+        # {{ encore_entry_script_tags('entry1', null, 'frontend') }}
 
 framework:
     assets:
         packages:
-            'admin-config':
-                json_manifest_path: '%kernel.project_dir%/public/build/admin/manifest.json'
             'website-config':
-                json_manifest_path: '%kernel.project_dir%/public/build/website/manifest.json'
+                json_manifest_path: '%kernel.project_dir%/%public_dir_name%/build/website/manifest.json'
 
 #when@prod:
 #    webpack_encore:

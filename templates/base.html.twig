@@ -1,87 +1,25 @@
+{% set pageName = app.request.get('_route') %}
+{% set locale = app.request.get('_locale') %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        {% set pageName = app.request.get('_route') %}
-        {% set locale = app.request.get('_locale') %}
-
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-        <meta name="Description" content="{{ website.name }}" />
-        <meta name="Keywords" content="template,symfony,cygnus" />
-        <meta name="title" content="{{ website.name }}" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="theme-color" content="#509F2C" />
-        <meta name="msapplication-navbutton-color" content="#509F2C" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="#509F2C" />
-
-        {# Favicon #}
-        <link rel="shortcut icon"
-            href="{{ asset('build/website/images/favicon/favicon.ico') }}"
-            type="image/x-icon" />
-        <link rel="apple-touch-icon"
-            href="{{ asset('build/website/images/favicon/apple-touch-icon.png') }}" />
-        <link rel="apple-touch-icon"
-            sizes="57x57"
-            href="{{ asset('build/website/images/favicon/apple-touch-icon-57x57.png') }}" />
-        <link rel="apple-touch-icon"
-            sizes="72x72"
-            href="{{ asset('build/website/images/favicon/apple-touch-icon-72x72.png') }}" />
-        <link rel="apple-touch-icon"
-            sizes="76x76"
-            href="{{ asset('build/website/images/favicon/apple-touch-icon-76x76.png') }}" />
-        <link rel="apple-touch-icon"
-            sizes="114x114"
-            href="{{ asset('build/website/images/favicon/apple-touch-icon-114x114.png') }}" />
-        <link rel="apple-touch-icon"
-            sizes="120x120"
-            href="{{ asset('build/website/images/favicon/apple-touch-icon-120x120.png') }}" />
-        <link rel="apple-touch-icon"
-            sizes="144x144"
-            href="{{ asset('build/website/images/favicon/apple-touch-icon-144x144.png') }}" />
-        <link rel="apple-touch-icon"
-            sizes="152x152"
-            href="{{ asset('build/website/images/favicon/apple-touch-icon-152x152.png') }}" />
-        <link rel="apple-touch-icon"
-            sizes="180x180"
-            href="{{ asset('build/website/images/favicon/apple-touch-icon-180x180.png') }}" />
-        <link rel="manifest" href="{{ asset('build/website/pwa-manifest.json') }}" />
         <title>
             {% block title %}
                 {{ website.name }}
             {% endblock title %}
         </title>
+        <link rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>" />
         {% block stylesheets %}
 
         {% endblock stylesheets %}
     </head>
     <body>
-        <div id="cont">
-            {# //// HEADER #}
-            <header id="header" role="banner">
-                {% block header %}
+        {% block body %}
 
-                {% endblock header %}
-            </header>
-
-            {# //// MAIN #}
-            <main id="main" role="main" class="main-{{ pageName }}">
-                {% block main %}
-
-                {% endblock main %}
-            </main>
-
-            {# //// FOOTER #}
-            <footer id="footer" role="contentinfo">
-                {% block footer %}
-
-                {% endblock footer %}
-            </footer>
-        </div>
-
-        <div class="fondo left"></div>
-        <div class="fondo right"></div>
+        {% endblock body %}
 
         {% block javascripts %}
 
